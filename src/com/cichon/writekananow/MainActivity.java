@@ -2,14 +2,22 @@ package com.cichon.writekananow;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        //bind menu listeners
+        findViewById(R.id.button_learn).setOnClickListener(this);
+        findViewById(R.id.button_quiz).setOnClickListener(this);
+        
     }
 
 
@@ -19,5 +27,20 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
+
+
+	@Override
+	public void onClick(View v) {
+		switch(v.getId()) {
+    	case R.id.button_learn:			startActivity(new Intent(this, LearnActivity.class));
+    									break;
+    									
+    	case R.id.button_quiz: 			startActivity(new Intent(this, QuizActivity.class));
+    									break;
+    									
+    	default:
+    	}
+		
+	}
     
 }
