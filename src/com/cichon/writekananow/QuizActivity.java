@@ -83,6 +83,10 @@ public class QuizActivity extends Activity implements OnClickListener {
 	}
 	
 	private void generateQuestion() {
+		
+		TextView text = (TextView) findViewById(R.id.quizText);
+		text.setText("");
+		
 		hideNextButton();
 		if(kanaString == null)
 			kanaString = katakanaFactory.getRandomElement();
