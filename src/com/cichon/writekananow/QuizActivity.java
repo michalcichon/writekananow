@@ -20,7 +20,7 @@ public class QuizActivity extends Activity implements OnClickListener {
 	final Random rand = new Random();
 	private SparseArray<String> answers;
 	private int correctAnswerPosition;
-	
+	private String kanaString;
 	private KatakanaFactory katakanaFactory = new KatakanaFactory();
 
 	@SuppressLint("DefaultLocale")
@@ -36,38 +36,7 @@ public class QuizActivity extends Activity implements OnClickListener {
         findViewById(R.id.button_answer_3).setOnClickListener(this);
         findViewById(R.id.button_quiz_next).setOnClickListener(this);
         
-        hideNextButton();
-		
-		String randomKana = katakanaFactory.getRandomElement();
-		ImageView imgView = (ImageView)findViewById(R.id.quizImage);
-		int imgId = getResources().getIdentifier(randomKana, "drawable", getPackageName());
-		imgView.setImageResource(imgId);
-		
-		int max = 3, min = 0;
-		correctAnswerPosition = rand.nextInt(max - min + 1) + min;
-		answers = new SparseArray<String>();
-		
-		answers.put(correctAnswerPosition, getLabelFromKanaString(randomKana));
-		
-		for(int i=min; i<=max; ++i) {
-			if(i==correctAnswerPosition)
-				continue;
-
-			String label = getLabelFromKanaString(katakanaFactory.getRandomElement());
-			
-			while(elementExists(label, answers)) {
-				label = getLabelFromKanaString(katakanaFactory.getRandomElement());
-			}
-			answers.put(i, label);
-		}
-		
-		System.out.println("correctAnswerPosition: " + correctAnswerPosition);
-		
-		for(int i=min; i<=max; ++i) {
-			int id = getResources().getIdentifier("button_answer_" + i, "id", getPackageName());
-			Button temp = (Button)findViewById(id);
-			temp.setText(answers.get(i));
-		}
+		generateQuestion();
 		
 	}
 	
@@ -112,6 +81,40 @@ public class QuizActivity extends Activity implements OnClickListener {
 	private String getLabelFromKanaString(String kana) {
 		return kana.toUpperCase(Locale.ENGLISH);
 	}
+	
+	private void generateQuestion() {
+		hideNextButton();
+		kanaString = katakanaFactory.getRandomElement();
+		ImageView imgView = (ImageView)findViewById(R.id.quizImage);
+		int imgId = getResources().getIdentifier(kanaString, "drawable", getPackageName());
+		imgView.setImageResource(imgId);
+		
+		int max = 3, min = 0;
+		correctAnswerPosition = rand.nextInt(max - min + 1) + min;
+		answers = new SparseArray<String>();
+		
+		answers.put(correctAnswerPosition, getLabelFromKanaString(kanaString));
+		
+		for(int i=min; i<=max; ++i) {
+			if(i==correctAnswerPosition)
+				continue;
+
+			String label = getLabelFromKanaString(katakanaFactory.getRandomElement());
+			
+			while(elementExists(label, answers)) {
+				label = getLabelFromKanaString(katakanaFactory.getRandomElement());
+			}
+			answers.put(i, label);
+		}
+		
+		System.out.println("correctAnswerPosition: " + correctAnswerPosition);
+		
+		for(int i=min; i<=max; ++i) {
+			int id = getResources().getIdentifier("button_answer_" + i, "id", getPackageName());
+			Button temp = (Button)findViewById(id);
+			temp.setText(answers.get(i));
+		}
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -148,7 +151,7 @@ public class QuizActivity extends Activity implements OnClickListener {
 
 	private void nextButtonClicked() {
 		enableButtons();
-		hideNextButton();
+		generateQuestion();
 	}
 
 }
