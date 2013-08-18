@@ -84,7 +84,11 @@ public class QuizActivity extends Activity implements OnClickListener {
 	
 	private void generateQuestion() {
 		hideNextButton();
-		kanaString = katakanaFactory.getRandomElement();
+		if(kanaString == null)
+			kanaString = katakanaFactory.getRandomElement();
+		else
+			kanaString = katakanaFactory.getRandomElementUnlike(kanaString);
+		
 		ImageView imgView = (ImageView)findViewById(R.id.quizImage);
 		int imgId = getResources().getIdentifier(kanaString, "drawable", getPackageName());
 		imgView.setImageResource(imgId);
