@@ -14,14 +14,27 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="UselessParent" >
+        
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="288dp" >
+		    
+            <ImageView
+	            android:id="@+id/quizImage"
+	            android:layout_width="fill_parent" 
+        		android:layout_height="fill_parent" 
+	            android:layout_gravity="center_vertical"
+	            tools:ignore="ContentDescription" />
+            
+            <Button
+                android:id="@+id/button_quiz_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                style="@style/ButtonText"
+                android:background="@drawable/button_red"  />
 
-        <ImageView
-            android:id="@+id/quizImage"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.43"
-            tools:ignore="ContentDescription" />
+            </FrameLayout>
         
         <LinearLayout
 	        android:layout_width="match_parent"

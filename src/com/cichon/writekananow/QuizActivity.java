@@ -34,6 +34,9 @@ public class QuizActivity extends Activity implements OnClickListener {
         findViewById(R.id.button_answer_1).setOnClickListener(this);
         findViewById(R.id.button_answer_2).setOnClickListener(this);
         findViewById(R.id.button_answer_3).setOnClickListener(this);
+        findViewById(R.id.button_quiz_next).setOnClickListener(this);
+        
+        hideNextButton();
 		
 		Tuple randomElement = katakanaFactory.getRandomElement();
 		ImageView imgView = (ImageView)findViewById(R.id.quizImage);
@@ -80,6 +83,32 @@ public class QuizActivity extends Activity implements OnClickListener {
 		return false;
 	}
 	
+	private void disableButtons() {
+		for(int i=0; i<=3; ++i) {
+			int id = getResources().getIdentifier("button_answer_" + i, "id", getPackageName());
+			Button temp = (Button)findViewById(id);
+			temp.setEnabled(false);
+		}
+	}
+	
+	private void enableButtons() {
+		for(int i=0; i<=3; ++i) {
+			int id = getResources().getIdentifier("button_answer_" + i, "id", getPackageName());
+			Button temp = (Button)findViewById(id);
+			temp.setEnabled(true);
+		}
+	}
+	
+	private void showNextButton() {
+		Button nextButton = (Button) findViewById(R.id.button_quiz_next);
+		nextButton.setVisibility(View.VISIBLE);
+	}
+	
+	private void hideNextButton() {
+		Button nextButton = (Button) findViewById(R.id.button_quiz_next);
+		nextButton.setVisibility(View.INVISIBLE);
+	}
+	
 	private String getLabelFromTuple(Tuple tuple) {
 		return tuple.getName().toString().toUpperCase(Locale.ENGLISH);
 	}
@@ -100,16 +129,26 @@ public class QuizActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View button) {
 		
-		int correctId = getResources().getIdentifier("button_answer_" + correctAnswerPosition, "id", getPackageName());
-		int color = Color.RED;
-		if(button.getId() == correctId) {
-			color = Color.GREEN;
+		if(button.getId() == R.id.button_quiz_next)
+			nextButtonClicked();
+		else {
+			int correctId = getResources().getIdentifier("button_answer_" + correctAnswerPosition, "id", getPackageName());
+			int color = Color.RED;
+			if(button.getId() == correctId) {
+				color = Color.GREEN;
+			}
+			
+			TextView text = (TextView) findViewById(R.id.quizText);
+			text.setText(answers.get(correctAnswerPosition));
+			text.setTextColor(color);
+			disableButtons();
+			showNextButton();
 		}
-		
-		TextView text = (TextView) findViewById(R.id.quizText);
-		text.setText(answers.get(correctAnswerPosition));
-		text.setTextColor(color);
-		
+	}
+
+	private void nextButtonClicked() {
+		enableButtons();
+		hideNextButton();
 	}
 
 }
