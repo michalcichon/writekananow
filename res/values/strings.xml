@@ -21,8 +21,11 @@
         <item name="android:shadowRadius">2</item>
     </style>
 
-    <string name="title_activity_learn">LearnActivity</string>
+    <string name="title_activity_learn">Learn</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_quiz">QuizActivity</string>
+    <string name="title_activity_quiz">Quiz</string>
+    
+    <string name="tuple1">AAAA</string>
+    <string name="tuple2">BBBB</string>
 
 </resources>

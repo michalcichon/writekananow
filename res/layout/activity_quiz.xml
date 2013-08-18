@@ -11,7 +11,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quiz"
-        tools:ignore="HardcodedText" />
-
+        android:layout_centerHorizontal="true"
+        android:text="@string/tuple1"
+        android:id="@+id/tuple1" />
+    
+	<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tuple2"
+        android:id="@+id/tuple2" />
 </RelativeLayout>

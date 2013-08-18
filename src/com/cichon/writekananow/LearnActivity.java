@@ -9,7 +9,7 @@ public class LearnActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		overridePendingTransition(R.anim.pull_in_from_right, R.anim.hold);
+		overridePendingTransition(R.anim.pull_in_from_bottom, R.anim.hold);
 		setContentView(R.layout.activity_learn);
 	}
 
@@ -22,7 +22,7 @@ public class LearnActivity extends Activity {
 	
 	@Override
     protected void onPause() {
-        overridePendingTransition(R.anim.hold, R.anim.push_out_to_right);
+        overridePendingTransition(R.anim.hold, R.anim.push_out_to_bottom);
         super.onPause();
     }
 
