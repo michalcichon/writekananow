@@ -116,8 +116,6 @@ public class QuizActivity extends Activity implements OnClickListener {
 			answers.put(i, label);
 		}
 		
-		System.out.println("correctAnswerPosition: " + correctAnswerPosition);
-		
 		for(int i=min; i<=max; ++i) {
 			int id = getResources().getIdentifier("button_answer_" + i, "id", getPackageName());
 			Button temp = (Button)findViewById(id);
