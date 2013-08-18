@@ -6,12 +6,14 @@ import java.util.Random;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.graphics.Color;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class QuizActivity extends Activity implements OnClickListener {
 	
@@ -68,6 +70,7 @@ public class QuizActivity extends Activity implements OnClickListener {
 	
 	/**
 	 * @note: indexOfValue(E value) probably tests by ==, and not equals()
+	 * TODO: check if it's a good explanation
 	 */
 	private boolean elementExists(String element, SparseArray<String> array) {
 		for(int i=0; i<=array.size(); ++i) {
@@ -98,17 +101,14 @@ public class QuizActivity extends Activity implements OnClickListener {
 	public void onClick(View button) {
 		
 		int correctId = getResources().getIdentifier("button_answer_" + correctAnswerPosition, "id", getPackageName());
-		String checkImageName = "wrong";
+		int color = Color.RED;
 		if(button.getId() == correctId) {
-			System.out.println("OK");
-			checkImageName = "ok";
-		} else {
-			System.out.println("WRONG");
+			color = Color.GREEN;
 		}
 		
-		ImageView image = (ImageView)findViewById(R.id.quizImageCheck);
-		int id = getResources().getIdentifier(checkImageName, "drawable", getPackageName());
-		image.setImageResource(id);
+		TextView text = (TextView) findViewById(R.id.quizText);
+		text.setText(answers.get(correctAnswerPosition));
+		text.setTextColor(color);
 		
 	}
 
