@@ -6,18 +6,61 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".QuizActivity" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/tuple1"
-        android:id="@+id/tuple1" />
+    tools:context=".QuizActivity"
+    android:background="#000000" >
     
-	<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tuple2"
-        android:id="@+id/tuple2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent" >
+
+        <ImageView
+            android:id="@+id/quizImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.43"
+            tools:ignore="ContentDescription" />
+
+        <LinearLayout
+            android:id="@+id/LinearLayoutAnswers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/button_answer_0"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_blue" />
+
+            <Button
+                android:id="@+id/button_answer_1"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_green" />
+
+            <Button
+                android:id="@+id/button_answer_2"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_yellow" />
+
+            <Button
+                android:id="@+id/button_answer_3"
+                style="@style/ButtonText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_purple" />
+            
+        </LinearLayout>
+    </LinearLayout>
+    
 </RelativeLayout>
