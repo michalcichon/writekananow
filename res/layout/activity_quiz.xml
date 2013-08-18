@@ -22,6 +22,14 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="0.43"
             tools:ignore="ContentDescription" />
+        
+        <ImageView
+            android:id="@+id/quizImageCheck"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.43"
+            tools:ignore="ContentDescription" />
 
         <LinearLayout
             android:id="@+id/LinearLayoutAnswers"

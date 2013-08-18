@@ -6,8 +6,6 @@ import java.util.Random;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.util.SparseArray;
 import android.view.Menu;
 import android.view.View;
@@ -97,11 +95,20 @@ public class QuizActivity extends Activity implements OnClickListener {
     }
 
 	@Override
-	public void onClick(View arg0) {
-		new AlertDialog.Builder(this)
-	    .setTitle("Test")
-	    .setMessage("Lorem ipsum...")
-	    .show();
+	public void onClick(View button) {
+		
+		int correctId = getResources().getIdentifier("button_answer_" + correctAnswerPosition, "id", getPackageName());
+		String checkImageName = "wrong";
+		if(button.getId() == correctId) {
+			System.out.println("OK");
+			checkImageName = "ok";
+		} else {
+			System.out.println("WRONG");
+		}
+		
+		ImageView image = (ImageView)findViewById(R.id.quizImageCheck);
+		int id = getResources().getIdentifier(checkImageName, "drawable", getPackageName());
+		image.setImageResource(id);
 		
 	}
 
