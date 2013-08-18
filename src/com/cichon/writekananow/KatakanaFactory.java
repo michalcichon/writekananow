@@ -6,36 +6,36 @@ import java.util.Random;
 public class KatakanaFactory {
 	
 	private Random randomGenerator;
-	private ArrayList<Tuple> dictionary;
+	private ArrayList<String> dictionary;
 	
 	KatakanaFactory() {
 		super();
 		
-		dictionary = new ArrayList<Tuple>();
-		dictionary.add(new Tuple("a","a.png"));
-		dictionary.add(new Tuple("i","i.png"));
-		dictionary.add(new Tuple("u","u.png"));
-		dictionary.add(new Tuple("e","e.png"));
-		dictionary.add(new Tuple("o","o.png"));
+		dictionary = new ArrayList<String>();
+		dictionary.add("a");
+		dictionary.add("i");
+		dictionary.add("u");
+		dictionary.add("e");
+		dictionary.add("o");
 		
 		randomGenerator = new Random();
 		
 	}
 	
-	public Tuple getRandomElement() {
+	public String getRandomElement() {
 		int index = randomGenerator.nextInt(dictionary.size());
         return dictionary.get(index);
 	}
 	
-	public Tuple getRandomElementUnlike(Tuple tuple) {
+	public String getRandomElementUnlike(String kana) {
 		int index = randomGenerator.nextInt(dictionary.size());
-		Tuple returnedTuple = dictionary.get(index);
+		String returnedKana = dictionary.get(index);
 		
-		while(tuple.equals(returnedTuple)) {
+		while(kana.equals(returnedKana)) {
 			index = randomGenerator.nextInt(dictionary.size());
-			returnedTuple = dictionary.get(index);
+			returnedKana = dictionary.get(index);
 		}
 		
-		return returnedTuple;
+		return returnedKana;
 	}
 }

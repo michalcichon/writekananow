@@ -38,25 +38,25 @@ public class QuizActivity extends Activity implements OnClickListener {
         
         hideNextButton();
 		
-		Tuple randomElement = katakanaFactory.getRandomElement();
+		String randomKana = katakanaFactory.getRandomElement();
 		ImageView imgView = (ImageView)findViewById(R.id.quizImage);
-		int imgId = getResources().getIdentifier(randomElement.getName(), "drawable", getPackageName());
+		int imgId = getResources().getIdentifier(randomKana, "drawable", getPackageName());
 		imgView.setImageResource(imgId);
 		
 		int max = 3, min = 0;
 		correctAnswerPosition = rand.nextInt(max - min + 1) + min;
 		answers = new SparseArray<String>();
 		
-		answers.put(correctAnswerPosition, getLabelFromTuple(randomElement));
+		answers.put(correctAnswerPosition, getLabelFromKanaString(randomKana));
 		
 		for(int i=min; i<=max; ++i) {
 			if(i==correctAnswerPosition)
 				continue;
 
-			String label = getLabelFromTuple(katakanaFactory.getRandomElement());
+			String label = getLabelFromKanaString(katakanaFactory.getRandomElement());
 			
 			while(elementExists(label, answers)) {
-				label = getLabelFromTuple(katakanaFactory.getRandomElement());
+				label = getLabelFromKanaString(katakanaFactory.getRandomElement());
 			}
 			answers.put(i, label);
 		}
@@ -109,8 +109,8 @@ public class QuizActivity extends Activity implements OnClickListener {
 		nextButton.setVisibility(View.INVISIBLE);
 	}
 	
-	private String getLabelFromTuple(Tuple tuple) {
-		return tuple.getName().toString().toUpperCase(Locale.ENGLISH);
+	private String getLabelFromKanaString(String kana) {
+		return kana.toUpperCase(Locale.ENGLISH);
 	}
 
 	@Override
