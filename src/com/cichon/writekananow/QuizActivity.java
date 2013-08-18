@@ -45,8 +45,9 @@ public class QuizActivity extends Activity implements OnClickListener {
 	 * TODO: check if it's a good explanation
 	 */
 	private boolean elementExists(String element, SparseArray<String> array) {
-		for(int i=0; i<=array.size(); ++i) {
-			if(element.equals(array.get(i)))
+		for(int i=0, key=0; i<array.size(); ++i) {
+			key = array.keyAt(i);
+			if(element.equals(array.get(key)))
 				return true;
 		}
 		return false;
