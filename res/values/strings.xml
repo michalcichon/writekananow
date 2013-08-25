@@ -26,5 +26,9 @@
     <string name="title_activity_quiz">Quiz</string>
     <string name="next">Next</string>
     <string name="validate">Validate</string>
+    <string name="try_again">Could be better</string>
+    <string name="ok">OK</string>
+    <string name="good">Good</string>
+    
 
 </resources>
