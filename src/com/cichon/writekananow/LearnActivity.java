@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Bitmap.Config;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -93,7 +92,6 @@ public class LearnActivity extends Activity implements OnClickListener {
 		}
 		
 		float score = 0.5f * ((float)blackPointsValidated / (float)blackPoints) + 0.5f * ((float)notBlackPointsValidated / (float)notBlackPoints);
-		System.out.println(score);
 		
 		setMyResult(score);
 		
