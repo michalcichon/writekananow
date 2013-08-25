@@ -40,6 +40,10 @@
             android:name="com.cichon.writekananow.QuizActivity"
             android:label="@string/title_activity_quiz" >
         </activity>
+        <activity
+            android:name="com.cichon.writekananow.Settings"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>

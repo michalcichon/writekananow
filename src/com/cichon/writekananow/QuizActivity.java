@@ -6,9 +6,11 @@ import java.util.Random;
 import android.os.Bundle;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.SparseArray;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -160,5 +162,13 @@ public class QuizActivity extends Activity implements OnClickListener {
 		enableButtons();
 		generateQuestion();
 	}
+	
+	public boolean onOptionsItemSelected(MenuItem element){
+    	switch(element.getItemId()){
+    	case R.id.action_settings: 		startActivity(new Intent(this, Settings.class));  
+    									return true;
+    	}
+    	return false;
+    }
 
 }

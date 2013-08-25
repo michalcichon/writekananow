@@ -2,11 +2,13 @@ package com.cichon.writekananow;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -139,5 +141,13 @@ public class LearnActivity extends Activity implements OnClickListener {
 		validateButton.setText(getString(R.string.validate));
 		validateButton.setEnabled(true);
 	}
+	
+	public boolean onOptionsItemSelected(MenuItem element){
+    	switch(element.getItemId()){
+    	case R.id.action_settings: 		startActivity(new Intent(this, Settings.class));  
+    									return true;
+    	}
+    	return false;
+    }
 
 }

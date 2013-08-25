@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -40,7 +41,19 @@ public class MainActivity extends Activity implements OnClickListener {
     									
     	default:
     	}
-		
 	}
+	
+	public boolean onOptionsItemSelected(MenuItem element){
+    	switch(element.getItemId()){
+    	case R.id.action_settings: 		startActivity(new Intent(this, Settings.class));  
+    									return true;
+    	case R.id.learn_menu:             startActivity(new Intent(this, LearnActivity.class));  
+										return true;								
+    	case R.id.quiz_menu:     		startActivity(new Intent(this, QuizActivity.class));  
+										return true;
+								
+    	}
+    	return false;
+    }
     
 }
