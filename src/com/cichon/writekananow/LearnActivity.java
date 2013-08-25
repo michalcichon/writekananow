@@ -12,6 +12,7 @@ public class LearnActivity extends Activity implements OnClickListener {
 	private String kanaString = "";
 	private KatakanaFactory katakanaFactory = new KatakanaFactory();
 
+	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -61,10 +62,8 @@ public class LearnActivity extends Activity implements OnClickListener {
 	}
 
 	private void nextKana() {
-		CanvasView canvasView = (CanvasView) findViewById(R.id.learnCanvas);
-		
-		if(!kanaString.equals(""))
-			canvasView.clearCanvas();
+		BrushView brushView = (BrushView) findViewById(R.id.learnCanvas);
+		brushView.reset();
 		
 		kanaString = katakanaFactory.getRandomElementUnlike(kanaString);
         ImageView imgView = (ImageView)findViewById(R.id.learnImage);

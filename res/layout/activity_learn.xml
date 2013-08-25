@@ -21,7 +21,7 @@
             android:src="@drawable/a"
             tools:ignore="ContentDescription" />
 
-        <com.cichon.writekananow.CanvasView
+        <com.cichon.writekananow.BrushView
             android:id="@+id/learnCanvas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
