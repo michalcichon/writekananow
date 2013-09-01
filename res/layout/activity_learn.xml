@@ -17,6 +17,15 @@
         android:orientation="vertical"
         tools:ignore="UselessParent" >
         
+        <TextView
+	            android:id="@+id/learnText"
+	            android:layout_width="fill_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center"
+	            android:textSize="30sp"
+	            android:textColor="#CCCCCC"
+	            android:textStyle="bold" />
+        
         <FrameLayout
 	        android:id="@+id/frameLayout1"
 	        android:layout_width="fill_parent"
@@ -35,6 +44,8 @@
 	            android:layout_width="fill_parent"
 	            android:layout_height="fill_parent" />
 	    </FrameLayout>
+	    
+        
 	
 	    <Button
 	        android:id="@+id/button_learn_validate"

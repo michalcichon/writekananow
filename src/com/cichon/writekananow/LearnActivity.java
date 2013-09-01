@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class LearnActivity extends Activity implements OnClickListener {
 	
@@ -101,6 +102,9 @@ public class LearnActivity extends Activity implements OnClickListener {
         ImageView imgView = (ImageView)findViewById(R.id.learnImage);
 		int imgId = getResources().getIdentifier(kanaString + "_shadow", "drawable", getPackageName());
 		imgView.setImageResource(imgId);
+		
+		TextView text = (TextView) findViewById(R.id.learnText);
+		text.setText(kanaString);
 	}
 	
 	public static Bitmap loadBitmapFromView(View v) {
