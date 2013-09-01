@@ -69,8 +69,8 @@ public class LearnActivity extends Activity implements OnClickListener {
 		
 		int blackPoints = 0, notBlackPoints = 0;
 		int blackPointsValidated = 0, notBlackPointsValidated = 0;
-		for(int i=0, width = imageViewBitmap.getWidth(); i<width; ++i) {
-			for(int j=0, height = imageViewBitmap.getHeight(); j<height; ++j) {
+		for(int i=0, width = imageViewBitmap.getWidth(), jump_i = width / 100; i<width; i += jump_i) {
+			for(int j=0, height = imageViewBitmap.getHeight(), jump_j = height / 100; j<height; j += jump_j) {
 				int pixel = imageViewBitmap.getPixel(i, j);
 				if(pixel == Color.rgb(204, 204, 204)) {
 					blackPoints++;
