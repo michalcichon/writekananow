@@ -143,6 +143,9 @@ public class LearnActivity extends Activity implements OnClickListener {
     	switch(element.getItemId()){
     	case R.id.action_settings: 		startActivity(new Intent(this, Settings.class));  
     									return true;
+    									
+    	case R.id.main_menu: 		startActivity(new Intent(this, MainActivity.class));  
+										return true;
     	}
     	return false;
     }

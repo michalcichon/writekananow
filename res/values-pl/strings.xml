@@ -6,6 +6,7 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="button_learn">Nauka</string>
     <string name="button_quiz">Sprawdzian</string>
+    <string name="button_main">Menu</string>
 
     <style name="ButtonText">
         <item name="android:layout_width">fill_parent</item>
